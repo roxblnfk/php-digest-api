@@ -10,6 +10,7 @@ use App\Api\External\Exception\HttpException;
 use App\Common\Domain\Exception\EntityNotFound;
 use App\Module\User\Domain\Entity\Identity;
 use ErrorException;
+use OpenApi\Annotations as OA;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -25,6 +26,14 @@ use Yiisoft\Injector\Injector;
 use roxblnfk\SmartStream\Data\DataBucket;
 use roxblnfk\SmartStream\SmartStreamFactory;
 
+/**
+ * @OA\Info(title="Yii API application", version="1.0"),
+ * @OA\Server(url="/api"),
+ * @OA\Tag(
+ *     name="link",
+ *     description="All link actions"
+ * )
+ */
 abstract class ApiController implements MiddlewareInterface
 {
     protected ResponseFactoryInterface $responseFactory;

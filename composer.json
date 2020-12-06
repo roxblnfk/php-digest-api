@@ -23,7 +23,6 @@
         "yiisoft/aliases": "^1.1",
         "yiisoft/assets": "@dev",
         "yiisoft/auth": "^1.0",
-        "yiisoft/user": "^3.0@dev",
         "yiisoft/cache": "@dev",
         "yiisoft/cache-file": "@dev",
         "yiisoft/composer-config-plugin": "^1.0@dev",
@@ -42,6 +41,7 @@
         "yiisoft/router": "@dev",
         "yiisoft/router-fastroute": "@dev",
         "yiisoft/translator": "^3.0@dev",
+        "yiisoft/user": "^3.0@dev",
         "yiisoft/validator": "^3.0@dev",
         "yiisoft/view": "@dev",
         "yiisoft/widget": "@dev",
@@ -49,6 +49,7 @@
         "yiisoft/yii-cycle": "*",
         "yiisoft/yii-debug": "@dev",
         "yiisoft/yii-event": "@dev",
+        "yiisoft/yii-swagger": "3.0.x-dev",
         "yiisoft/yii-view": "^3.0@dev",
         "yiisoft/yii-web": "@dev"
     },

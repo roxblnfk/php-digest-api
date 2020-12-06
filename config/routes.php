@@ -62,6 +62,31 @@ return [
     )->addMiddleware(BucketStreamMiddleware::class)
         ->addMiddleware(RequestBodyParser::class),
 
+    // Swagger routes
+    Group::create(
+        '/swagger',
+        [
+            Route::get('')
+                 ->addMiddleware(static fn (\Yiisoft\Swagger\Middleware\SwaggerUi $swaggerUi)
+                    => $swaggerUi->withJsonUrl('/swagger/json-url'))
+                 ->addMiddleware(\Yiisoft\DataResponse\Middleware\FormatDataResponseAsHtml::class),
+            Route::get('/json-url')
+                 ->addMiddleware(
+                     static function (\Yiisoft\Swagger\Middleware\SwaggerJson $swaggerJson) {
+                         return $swaggerJson
+                             // Uncomment cache for production environment
+                             // ->withCache(3600)
+                             ->withAnnotationPaths(
+                                 [
+                                     '@src/Api/External/Controller' // Path to API controllers
+                                 ]
+                             );
+                     }
+                 )
+                 ->addMiddleware(\Yiisoft\DataResponse\Middleware\FormatDataResponseAsJson::class),
+        ]
+    ),
+
     // Telegram
     Route::post('/telegram', [WebhookAction::class, '__invoke'])->name('telegram/webhook'),
 ];
